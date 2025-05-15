@@ -1,0 +1,10 @@
+FROM alpine:3.19
+
+WORKDIR /app
+
+RUN apk add python3 && chown -R nobody:nobody /app/
+
+USER nobody
+
+COPY  hello_alpine.py /app/
+ENTRYPOINT [ "python", "hello_alpine.py" ]
